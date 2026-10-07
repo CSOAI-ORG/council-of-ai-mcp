@@ -75,14 +75,11 @@ url = "https://councilof.ai/mcp/free"
 
 ### Chat apps that take a pasted server URL
 
-Add a custom connector with the URL `https://councilof.ai/mcp/free` and no authentication:
+In Claude (claude.ai and Desktop), ChatGPT, Mistral Le Chat, Perplexity, Grok, Microsoft Copilot Studio and other
+hosts that accept a custom remote MCP server, add the URL `https://councilof.ai/mcp/free` with no authentication.
+Which plans or workspace roles may add one, and the menu names, are set by each vendor and change often.
 
-- **Claude** (claude.ai, Desktop): Settings, Connectors, Add custom connector.
-- **ChatGPT** (developer mode): Settings, Apps and Connectors, Advanced settings, Developer mode, Create.
-- **Mistral Le Chat:** Intelligence, Connectors, Add connector, Custom MCP Connector.
-- **Microsoft Copilot Studio:** Agent, Tools, Add a tool, New tool, Model Context Protocol.
-
-Menu names follow each vendor's documentation and can change.
+In Claude it is also listed in the directory as "Council of AI".
 
 ### Check it yourself, no client needed
 
