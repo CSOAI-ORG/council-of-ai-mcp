@@ -17,10 +17,14 @@ if urls != ["https://councilof.ai/mcp/free"]:
     errs.append(f"mcpServers must be exactly the free endpoint, got {urls}")
 if len(m.get("description", "")) > 100:
     errs.append("description over 100 characters")
-p = json.load(open(".mcp.json"))
-purls = [v.get("url") for v in p.get("mcpServers", {}).values()]
-if purls != ["https://councilof.ai/mcp/free"]:
-    errs.append(f".mcp.json must be exactly the free endpoint, got {purls}")
+for f in (".mcp.json", "mcp.json"):
+    p = json.load(open(f))
+    purls = [v.get("url") for v in p.get("mcpServers", {}).values()]
+    if purls != ["https://councilof.ai/mcp/free"]:
+        errs.append(f"{f} must be exactly the free endpoint, got {purls}")
+ap = json.load(open("plugin.json"))
+if ap.get("version") != m.get("version") or ap.get("description") != m.get("description") or ap.get("name") != m.get("name"):
+    errs.append("plugin.json (Agent Plugins) must match the manifest name, version and description")
 for f in (".claude-plugin/plugin.json", ".cursor-plugin/plugin.json"):
     q = json.load(open(f))
     if q.get("mcpServers") != "./.mcp.json" or q.get("version") != m.get("version") or q.get("description") != m.get("description"):
@@ -29,7 +33,7 @@ if m.get("contextFileName") and not __import__("os").path.exists(m["contextFileN
     errs.append(f"contextFileName {m['contextFileName']} missing")
 if errs:
     print("gate: gemini-extension.json:", "; ".join(errs)); sys.exit(1)
-print("gate: manifests ok (Gemini, Claude, Cursor, .mcp.json)")
+print("gate: manifests ok (Gemini, Agent Plugins, Claude, Cursor)")
 PY
 
 # 2. Doctrine words: we measure; we never certify. No superlatives, no safety claims.
