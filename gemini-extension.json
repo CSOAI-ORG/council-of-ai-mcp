@@ -1,0 +1,12 @@
+{
+  "name": "council-of-ai",
+  "version": "1.4.4",
+  "description": "Free, read-only MCP tools: read the GSPC AI measurement board and verify signed records.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "council-of-ai": {
+      "httpUrl": "https://councilof.ai/mcp/free",
+      "timeout": 30000
+    }
+  }
+}
