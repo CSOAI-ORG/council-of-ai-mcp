@@ -18,6 +18,7 @@ board and check Council of AI's signed records: measurement cards, measurement c
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=council-of-ai&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fcouncilof.ai%2Fmcp%2Ffree%22%7D)
 [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=council-of-ai&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fcouncilof.ai%2Fmcp%2Ffree%22%7D&quality=insiders)
 [![Add to LM Studio](https://img.shields.io/badge/LM_Studio-Add_MCP-4b5563)](https://lmstudio.ai/install-mcp?name=council-of-ai&config=eyJ1cmwiOiJodHRwczovL2NvdW5jaWxvZi5haS9tY3AvZnJlZSJ9)
+[![Add to Kiro](https://img.shields.io/badge/Kiro-Add_MCP-7c3aed)](https://kiro.dev/launch/mcp/add/?name=council-of-ai&config=%7B%22url%22%3A%22https%3A%2F%2Fcouncilof.ai%2Fmcp%2Ffree%22%7D)
 
 ### Gemini CLI (this repository is a Gemini CLI extension)
 
@@ -25,13 +26,21 @@ board and check Council of AI's signed records: measurement cards, measurement c
 gemini extensions install https://github.com/CSOAI-ORG/council-of-ai-mcp
 ```
 
+Or add the server alone: `gemini mcp add --transport http council-of-ai https://councilof.ai/mcp/free`
+
 ### Claude Code
 
 ```sh
 claude mcp add --transport http council-of-ai https://councilof.ai/mcp/free
 ```
 
-### OpenAI Codex CLI (`~/.codex/config.toml`)
+### OpenAI Codex CLI
+
+```sh
+codex mcp add council-of-ai --url https://councilof.ai/mcp/free
+```
+
+or in `~/.codex/config.toml`:
 
 ```toml
 [mcp_servers.council-of-ai]
@@ -49,6 +58,7 @@ url = "https://councilof.ai/mcp/free"
 | Zed | `settings.json` | `{"context_servers": {"council-of-ai": {"url": "https://councilof.ai/mcp/free"}}}` |
 | JetBrains AI Assistant | Settings, Tools, AI Assistant, MCP, Add, As JSON | `{"mcpServers": {"council-of-ai": {"url": "https://councilof.ai/mcp/free"}}}` |
 | Cline | `cline_mcp_settings.json` | `{"mcpServers": {"council-of-ai": {"type": "streamableHttp", "url": "https://councilof.ai/mcp/free"}}}` |
+| LM Studio | `mcp.json` | `{"mcpServers": {"council-of-ai": {"url": "https://councilof.ai/mcp/free"}}}` |
 
 ### Chat apps that take a pasted server URL
 
