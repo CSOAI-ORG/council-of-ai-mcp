@@ -16,5 +16,6 @@
     "measurement",
     "verification"
   ],
-  "mcpServers": "./.mcp.json"
+  "mcpServers": "./.mcp.json",
+  "logo": "logo.png"
 }
