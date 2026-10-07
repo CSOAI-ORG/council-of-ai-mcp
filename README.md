@@ -41,6 +41,12 @@ Or as a plugin (this repository is also a Claude Code plugin marketplace):
 /plugin install council-of-ai@council-of-ai
 ```
 
+### GitHub Copilot CLI (this repository is an Agent Plugins package)
+
+```sh
+copilot plugin install CSOAI-ORG/council-of-ai-mcp
+```
+
 ### OpenAI Codex CLI
 
 ```sh
