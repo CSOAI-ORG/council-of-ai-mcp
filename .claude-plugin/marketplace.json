@@ -1,0 +1,21 @@
+{
+  "name": "council-of-ai",
+  "owner": {
+    "name": "CSOAI Ltd",
+    "email": "nicholas@csoai.org"
+  },
+  "metadata": {
+    "description": "Council of AI: the free, read-only GSPC MCP connector.",
+    "version": "1.4.4"
+  },
+  "plugins": [
+    {
+      "name": "council-of-ai",
+      "source": "./",
+      "description": "Free, read-only MCP tools: read the GSPC AI measurement board and verify signed records.",
+      "version": "1.4.4",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/CSOAI-ORG/council-of-ai-mcp"
+    }
+  ]
+}

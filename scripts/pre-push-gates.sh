@@ -7,7 +7,7 @@ cd "$(dirname "$0")/.." || exit 1
 fail=0
 TEXT_FILES=$(git ls-files '*.md' '*.json' | grep -v '^LICENSE$')
 
-# 1. The manifest parses and points at the free, read-only endpoint only.
+# 1. Every manifest parses and points at the free, read-only endpoint only.
 python3 - <<'PY' || fail=1
 import json, sys
 m = json.load(open("gemini-extension.json"))
@@ -17,11 +17,19 @@ if urls != ["https://councilof.ai/mcp/free"]:
     errs.append(f"mcpServers must be exactly the free endpoint, got {urls}")
 if len(m.get("description", "")) > 100:
     errs.append("description over 100 characters")
+p = json.load(open(".mcp.json"))
+purls = [v.get("url") for v in p.get("mcpServers", {}).values()]
+if purls != ["https://councilof.ai/mcp/free"]:
+    errs.append(f".mcp.json must be exactly the free endpoint, got {purls}")
+for f in (".claude-plugin/plugin.json", ".cursor-plugin/plugin.json"):
+    q = json.load(open(f))
+    if q.get("mcpServers") != "./.mcp.json" or q.get("version") != m.get("version") or q.get("description") != m.get("description"):
+        errs.append(f"{f} must point at ./.mcp.json and match the manifest version and description")
 if m.get("contextFileName") and not __import__("os").path.exists(m["contextFileName"]):
     errs.append(f"contextFileName {m['contextFileName']} missing")
 if errs:
     print("gate: gemini-extension.json:", "; ".join(errs)); sys.exit(1)
-print("gate: gemini-extension.json ok")
+print("gate: manifests ok (Gemini, Claude, Cursor, .mcp.json)")
 PY
 
 # 2. Doctrine words: we measure; we never certify. No superlatives, no safety claims.

@@ -1,0 +1,20 @@
+{
+  "name": "council-of-ai",
+  "version": "1.4.4",
+  "description": "Free, read-only MCP tools: read the GSPC AI measurement board and verify signed records.",
+  "author": {
+    "name": "CSOAI Ltd",
+    "email": "nicholas@csoai.org"
+  },
+  "homepage": "https://github.com/CSOAI-ORG/council-of-ai-mcp",
+  "repository": "https://github.com/CSOAI-ORG/council-of-ai-mcp",
+  "license": "Apache-2.0",
+  "keywords": [
+    "mcp",
+    "gspc",
+    "ai-measurement",
+    "measurement",
+    "verification"
+  ],
+  "mcpServers": "./.mcp.json"
+}

@@ -34,6 +34,13 @@ Or add the server alone: `gemini mcp add --transport http council-of-ai https://
 claude mcp add --transport http council-of-ai https://councilof.ai/mcp/free
 ```
 
+Or as a plugin (this repository is also a Claude Code plugin marketplace):
+
+```
+/plugin marketplace add CSOAI-ORG/council-of-ai-mcp
+/plugin install council-of-ai@council-of-ai
+```
+
 ### OpenAI Codex CLI
 
 ```sh
